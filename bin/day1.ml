@@ -14,7 +14,7 @@ let format_answer numbers = Printf.sprintf "%c%c" (List.hd (List.rev numbers)) (
 let get_answer line = 
     line |> String.to_seq |> List.of_seq |> get_numbers |> format_answer |> int_of_string 
 
-let () = List.map get_answer (read_file "inputday1") |> List.fold_left ( + ) 0 |> print_int
+let () = List.map get_answer (read_file "inputs/day1") |> List.fold_left ( + ) 0 |> print_int
 
 let replace_letters str =
     let rec aux str acc =
@@ -51,7 +51,7 @@ let get_answer_pt2 line =
     |> int_of_string
 
 let () =
-    List.map get_answer_pt2 (read_file "inputday1")
+    List.map get_answer_pt2 (read_file "inputs/day1")
     |> List.fold_left ( + ) 0
     |> Printf.sprintf "\n%d"
     |> print_endline
