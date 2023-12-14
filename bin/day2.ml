@@ -14,11 +14,11 @@ let build_round cubes_strs =
         match String.split_on_char ' ' (String.trim entry) with
         | amount :: color :: _ ->
         begin
-            match amount, color with
-            | amount, "red" -> Red (int_of_string amount)
-            | amount, "green" -> Green (int_of_string amount)
-            | amount, "blue" -> Blue (int_of_string amount)
-            | _, _ -> failwith "Invalid color"
+            match color with
+            | "red" -> Red (int_of_string amount)
+            | "green" -> Green (int_of_string amount)
+            | "blue" -> Blue (int_of_string amount)
+            | _ -> failwith "Invalid color"
         end
         | _ -> failwith "Invalid format"
     in { cubes=List.map build_cube cubes_strs}
